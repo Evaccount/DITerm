@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "../include/printCC.hpp"
+#include "../include/structure.hpp"
 
 #define NOIR        30
 #define ROUGE       31
