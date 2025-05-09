@@ -23,6 +23,8 @@
 #define HAUT 1
 #define BAS 2
 
+
+
 void printTwoPixel(int colorHaut, int colorBas){
     std::string ansiCode = "\033[";
     std::string pixelHaut = getstrColor(colorHaut, HAUT);

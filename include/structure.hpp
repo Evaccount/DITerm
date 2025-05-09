@@ -12,3 +12,5 @@ struct boutImageRGB {
 };
 
 #endif //STRUCTURE
+
+//test
