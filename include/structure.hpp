@@ -11,6 +11,8 @@ struct boutImageRGB {
     pixelRGB tab[2][2];
 };
 
-#endif //STRUCTURE
+struct boutImageANSI {
+    int tab[2][2];
+};
 
-//test
+#endif //STRUCTURE
