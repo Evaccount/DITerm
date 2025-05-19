@@ -31,9 +31,9 @@ boutImageANSI cboutImageRGBtoANSI(boutImageRGB bout){
 }
 
 int RGBtoANSI(pixelRGB pixel){
-    float diffRouge[15];
-    float diffVert[15];
-    float diffBleu[15];
+    float diffRouge;
+    float diffVert;
+    float diffBleu;
 
     int tableau[15][4] =
     {   {0, 0, 0, NOIR},        {255, 0, 0, ROUGE},
@@ -59,11 +59,11 @@ int RGBtoANSI(pixelRGB pixel){
 
     //calculer a quelle point notre couleur a de difference avec celle que l'on a deja en ANSI
     for(int i = 0 ; i < 15 ; i++){
-        diffRouge[i] = std::abs(pixel.rouge - tableau[i][0]);
-        diffVert[i] = std::abs(pixel.vert - tableau[i][1]);
-        diffBleu[i] = std::abs(pixel.bleu - tableau[i][2]);
+        diffRouge = (pixel.rouge - tableau[i][0]) * (pixel.rouge - tableau[i][0]);
+        diffVert = (pixel.vert - tableau[i][1]) * (pixel.vert - tableau[i][1]);
+        diffBleu = (pixel.bleu - tableau[i][2]) * (pixel.bleu - tableau[i][2]);
 
-        rapprochement[i][0] = (diffRouge[i] + diffVert[i] + diffBleu[i]) / 3;
+        rapprochement[i][0] = std::sqrt(diffRouge + diffVert + diffBleu);
     }
 
     //trouver quelle couleur ANSI a le moins de difference avec notre couleur
