@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "include/convert.hpp"
 #include "include/printCC.hpp"
 #include "include/structure.hpp"
 
@@ -21,11 +22,23 @@
 #define BLANC_C     97
 
 int main() {
-    for(int i = 0 ; i < 5 ; i++){
-        for (int t = 0 ; t < 10 ; t++ ){
-            printTwoPixel(MAGENTA, BLANC);
-        }
-        std::cout << std::endl;
-    }
+    boutImageRGB bout;
+    bout.tab[0][0].rouge = 255;
+    bout.tab[0][0].vert = 0;
+    bout.tab[0][0].bleu = 0;
+
+    bout.tab[0][1].rouge = 50;
+    bout.tab[0][1].vert = 205;
+    bout.tab[0][1].bleu = 50;
+
+    bout.tab[1][0].rouge = 135;
+    bout.tab[1][0].vert = 206;
+    bout.tab[1][0].bleu = 235;
+
+    bout.tab[1][1].rouge = 255;
+    bout.tab[1][1].vert = 215;
+    bout.tab[1][1].bleu = 0;
+
+    printBout(cboutImageRGBtoANSI(bout));
     return 0;
 }
