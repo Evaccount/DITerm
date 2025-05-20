@@ -20,8 +20,17 @@ file(GLOB SOURCES src/*.cpp)
 # Ajoutez le fichier main.cpp
 set(MAIN_SOURCE main.cpp)
 
+# Trouvez OpenCV
+find_package(OpenCV REQUIRED)
+
+# Incluez les répertoires d'OpenCV
+include_directories(${OpenCV_INCLUDE_DIRS})
+
 # Créez l'exécutable
 add_executable(${EXECUTABLE_NAME} ${SOURCES} ${MAIN_SOURCE})
+
+# Liez OpenCV à votre exécutable
+target_link_libraries(${EXECUTABLE_NAME} ${OpenCV_LIBS})
 
 # Spécifiez le dossier de sortie pour le binaire
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)

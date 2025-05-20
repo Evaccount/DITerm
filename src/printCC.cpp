@@ -49,4 +49,5 @@ std::string getstrColor(int color, int pos){
 void printBout(boutImageANSI bout){
     printTwoPixel(bout.tab[0][0], bout.tab[0][1]);
     printTwoPixel(bout.tab[1][0], bout.tab[1][1]);
+
 }

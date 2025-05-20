@@ -2,6 +2,7 @@
 #include "../include/structure.hpp"
 #include <cmath>
 #include <cstdlib>
+#include <iostream>
 
 #define NOIR        30
 #define ROUGE       31
@@ -21,9 +22,10 @@
 #define BLANC_C     97
 
 boutImageANSI cboutImageRGBtoANSI(boutImageRGB bout){
+
     boutImageANSI resultat;
-    for(int x ; x < 2 ; x++){
-        for(int y ; y < 2 ; y++){
+    for(int x = 0; x < 2 ; x++){
+        for(int y = 0; y < 2 ; y++){
             resultat.tab[x][y] = RGBtoANSI(bout.tab[x][y]);
         }
     }
@@ -31,6 +33,10 @@ boutImageANSI cboutImageRGBtoANSI(boutImageRGB bout){
 }
 
 int RGBtoANSI(pixelRGB pixel){
+    if(pixel.rouge == -1){
+        return NOIR;
+    }
+
     float diffRouge;
     float diffVert;
     float diffBleu;
@@ -75,6 +81,5 @@ int RGBtoANSI(pixelRGB pixel){
             k = i;
         }
     }
-
     return (int)rapprochement[k][1];
 }
